@@ -8,8 +8,6 @@ type PropsForm = {
 };
 
 export default function Form({ pais }: PropsForm) {
-  console.log("Form", pais);
-
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
@@ -24,7 +22,7 @@ export default function Form({ pais }: PropsForm) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-1">
       <input
-        type="text"
+        type="hidden"
         name="cod"
         defaultValue={pais?.id}
         className="bg-white p-1 text-black"
@@ -44,10 +42,16 @@ export default function Form({ pais }: PropsForm) {
       />
       <button
         type="submit"
-        className="bg-green-500 text-black p-1 hover:bg-green-400"
+        className="bg-green-500 text-black p-1 hover:bg-green-400 uppercase text-lg font-bold"
       >
-        Add
+        Salvar
       </button>
+      <a
+        href="/"
+        className="bg-slate-800 p-1 text-center text-sm uppercase  font-bold"
+      >
+        Cancelar
+      </a>
     </form>
   );
 }

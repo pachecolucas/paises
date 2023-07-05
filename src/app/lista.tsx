@@ -1,17 +1,17 @@
-import { list, remove } from "./service";
+"use client";
+
+import { Pais, remove } from "./service";
 import { X as TrashIcon, Edit as EditIcon } from "lucide-react";
 
-export default async function Lista() {
-  const paises = await list();
+type PropsLista = {
+  paises: Pais[];
+};
 
+export default function Lista({ paises }: PropsLista) {
   async function handleRemove(form: FormData) {
-    "use server";
+    if (!confirm("asdasd")) return;
     const id = parseInt(form.get("id") as string);
     await remove(id);
-  }
-
-  async function handleClick(id) {
-    console.log({ id });
   }
 
   return (
@@ -32,7 +32,7 @@ export default async function Lista() {
           </div>
           <a
             href={`/?id=${p.id}`}
-            className="p-1 bg-slate-600 hover:bg-slate-500"
+            className="p-1 px-2 bg-slate-600 hover:bg-slate-500"
           >
             <EditIcon />
           </a>
