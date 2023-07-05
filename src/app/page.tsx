@@ -1,14 +1,11 @@
-import Lista from "./lista";
-import Form from "./form";
+import Paises from "./paises";
 
-export default function Home() {
+export default function Home({ searchParams }: any) {
+  const id = searchParams.id ?? undefined;
+
   return (
-    <div className="p-4 flex flex-col gap-2 container mx-auto">
-      <h1 className="uppercase font-light tracking-[1em] text-center opacity-30">
-        Países
-      </h1>
-      <Lista />
-      <Form />
+    <div className="p-4 flex-col gap-2 container mx-auto">
+      <Paises id={id} />
     </div>
   );
 }
