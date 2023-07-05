@@ -12,6 +12,7 @@ export default function Lista({ paises }: PropsLista) {
     if (!confirm("asdasd")) return;
     const id = parseInt(form.get("id") as string);
     await remove(id);
+    window.location.replace("/");
   }
 
   return (

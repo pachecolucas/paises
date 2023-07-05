@@ -27,7 +27,6 @@ export async function add({ nome, abbr }: Pais) {
 export async function remove(id: number) {
   console.log("server delete", id);
   await sql`delete from paises where id=${id}`;
-  revalidatePath("/");
 }
 
 export async function update({ id, nome, abbr }: Pais) {
