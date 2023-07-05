@@ -1,5 +1,5 @@
 import { list, remove } from "./service";
-import { XCircle as TrashIcon } from "lucide-react";
+import { X as TrashIcon } from "lucide-react";
 
 export default async function Lista() {
   const paises = await list();
@@ -17,11 +17,15 @@ export default async function Lista() {
           key={p.id}
           className="flex gap-2 bg-slate-700 rounded-full overflow-hidden"
         >
-          <div className="p-1 pl-5 pr-4 bg-slate-500 items-stretch">{p.id}</div>
-          <div className="p-1 opacity-50 bold font-bold">{p.abbr}</div>
-          <div className="py-1 flex-1">{p.nome}</div>
-          <div className="p-1 bg-red-400 flex">
-            <form action={handleRemove}>
+          <div className="w-10 bg-slate-500 text-center flex justify-center">
+            <div className="self-center">{p.id}</div>
+          </div>
+          <div className="opacity-50 bold font-bold flex self-center">
+            {p.abbr}
+          </div>
+          <div className="flex-1 flex self-center">{p.nome}</div>
+          <div className="p-1 pr-2 bg-red-400 flex">
+            <form action={handleRemove} className="flex">
               <input type="hidden" name="id" value={p.id} />
               <button type="submit">
                 <TrashIcon />
