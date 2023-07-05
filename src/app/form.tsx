@@ -2,7 +2,6 @@
 
 import { Pais, add, update } from "./service";
 import { FormEvent } from "react";
-import { revalidatePath } from "next/cache";
 
 type PropsForm = {
   pais?: Pais | undefined;
@@ -19,8 +18,7 @@ export default function Form({ pais }: PropsForm) {
     const abbr = form.abbr.value;
     console.log("handleSubmit...", { id, nome, abbr }, event.target);
     id ? await update({ id, nome, abbr }) : await add({ nome, abbr });
-    form.reset();
-    revalidatePath("/teste");
+    window.location.replace("/");
   }
 
   return (
