@@ -2,6 +2,9 @@
 
 import { Pais, add, update } from "@/services/pais";
 import { FormEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 type PropsForm = {
   pais?: Pais | undefined;
@@ -21,37 +24,24 @@ export default function Form({ pais }: PropsForm) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-1">
-      <input
-        type="hidden"
-        name="cod"
-        defaultValue={pais?.id}
-        className="bg-white p-1 text-black"
-      />
-      <input
+      <Input type="hidden" name="cod" defaultValue={pais?.id} />
+      <Input
         type="text"
         name="nome"
+        placeholder="Nome do país"
         defaultValue={pais?.nome}
-        className="bg-white p-1 text-black"
       />
-      <input
+      <Input
         type="text"
         name="abbr"
+        placeholder="Abreviação"
         defaultValue={pais?.abbr}
-        className="bg-white p-1 text-black"
         maxLength={2}
       />
-      <button
-        type="submit"
-        className="bg-green-500 text-black p-1 hover:bg-green-400 uppercase text-lg font-bold"
-      >
-        Salvar
-      </button>
-      <a
-        href="/"
-        className="bg-slate-800 p-1 text-center text-sm uppercase  font-bold"
-      >
-        Cancelar
-      </a>
+      <Button type="submit">Salvar</Button>
+      <Button asChild variant="secondary" size="sm">
+        <Link href="/">Cancelar</Link>
+      </Button>
     </form>
   );
 }
