@@ -1,12 +1,12 @@
-import Lista from "./lista";
-import Form from "./form";
-import { getById, list } from "./service";
+import List from "./List";
+import Form from "./Form";
+import { getById, list } from "@/app/entities/Pais/service";
 
 type PropsPaises = {
   id?: number | undefined;
 };
 
-export default async function Paises({ id }: PropsPaises) {
+export default async function Wrapper({ id }: PropsPaises) {
   const pais = id ? await getById(id) : undefined;
   const paises = await list();
 
@@ -15,7 +15,7 @@ export default async function Paises({ id }: PropsPaises) {
       <h1 className="uppercase font-light tracking-[1em] text-center opacity-30">
         Países
       </h1>
-      <Lista paises={paises} />
+      <List paises={paises} />
       <Form pais={pais} />
     </div>
   );

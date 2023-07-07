@@ -1,11 +1,11 @@
-import Paises from "./paises";
+import Pais from "./entities/Pais";
 
 export default function Home({ searchParams }: any) {
   const id = searchParams.id ?? undefined;
 
   return (
     <div className="p-4 flex-col gap-2 container mx-auto">
-      <Paises id={id} />
+      <Pais id={id} />
     </div>
   );
 }

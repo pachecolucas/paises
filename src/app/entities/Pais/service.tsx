@@ -1,8 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import sql from "./db";
-import { FormEvent } from "react";
+import sql from "../db";
 
 export type Pais = {
   id?: number;
