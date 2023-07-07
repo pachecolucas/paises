@@ -1,6 +1,6 @@
 "use client";
 
-import { Pais, add, update } from "@/app/entities/Pais/service";
+import { Pais, add, update } from "@/services/pais";
 import { FormEvent } from "react";
 
 type PropsForm = {

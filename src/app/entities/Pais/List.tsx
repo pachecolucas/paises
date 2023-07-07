@@ -1,6 +1,6 @@
 "use client";
 
-import { Pais, remove } from "@/app/entities/Pais/service";
+import { Pais, remove } from "@/services/pais";
 import { X as TrashIcon, Edit as EditIcon } from "lucide-react";
 
 type PropsLista = {

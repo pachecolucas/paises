@@ -1,6 +1,6 @@
 "use server";
 
-import sql from "../db";
+import sql from "./db";
 
 export type Pais = {
   id?: number;

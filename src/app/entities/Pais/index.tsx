@@ -1,6 +1,6 @@
 import List from "./List";
 import Form from "./Form";
-import { getById, list } from "@/app/entities/Pais/service";
+import { getById, list } from "@/services/pais";
 
 type PropsPaises = {
   id?: number | undefined;
